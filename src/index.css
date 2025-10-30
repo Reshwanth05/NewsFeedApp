@@ -1,0 +1,530 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: #eaeaea;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #333333;
+}
+
+.app-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  margin: 2rem auto;
+}
+
+/* 📰 HEADER */
+.header {
+  width: 100%;
+  height: 100%;
+  background: #0b0b0b;
+  color: #ffffff;
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo-icon {
+  background: #26385b;
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+
+.logo-svg {
+  color: #0b0b0b;
+}
+
+.logo-text {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* 🔍 SEARCH BAR */
+.search-container {
+  position: relative;
+  margin: 2rem 0;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-actions {
+  display: flex;
+  align-items: center;
+}
+
+.clear-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.3rem;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  color: #6b6b6b;
+}
+
+.clear-btn:hover {
+  color: #111;
+}
+
+.search-btn {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn:hover {
+  background: #222;
+}
+
+/* Search History */
+.search-history {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 0.5rem;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fff;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.history-item:hover {
+  background: #f9f9f9;
+}
+
+.history-icon {
+  font-size: 1rem;
+}
+
+/* 🗂️ CATEGORY TABS */
+.categories-wrapper {
+  margin-bottom: 1rem;
+  overflow-x: auto;
+}
+
+.categories-container {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: nowrap;
+  padding-bottom: 0.5rem;
+}
+
+.category-btn {
+  border: none;
+  background: #e0e0e0;
+  border-radius: 20px;
+  padding: 0.5rem 1.1rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.category-btn.active {
+  background: #0a192f;
+  color: #fff;
+}
+
+.category-btn:hover {
+  background: #bdbdbd;
+}
+
+/* 🖼️ NEWS CAROUSEL */
+.carousel-container {
+  position: relative;
+  margin: 2rem 0;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-slide {
+  position: relative;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+.carousel-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.carousel-content {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  color: white;
+  z-index: 5;
+  max-width: 80%;
+}
+
+.breaking-badge {
+  background: #ff5252;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.carousel-title {
+  font-size: 1.6rem;
+  margin: 0.5rem 0;
+}
+
+.carousel-description {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.carousel-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Carousel Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-btn-left {
+  left: 1rem;
+}
+
+.carousel-btn-right {
+  right: 1rem;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.indicator.active {
+  background: #fff;
+  transform: scale(1.2);
+}
+
+/* ⚙️ FILTER SECTION */
+.filter-section {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.filter-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-label {
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+  color: #333;
+}
+
+.filter-select {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+/* 📰 ARTICLE GRID */
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.article-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.article-image-container {
+  position: relative;
+}
+
+.article-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.article-source {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+}
+
+.article-content {
+  padding: 1rem;
+}
+
+.article-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.article-description {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.article-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.article-link {
+  color: #0a192f;
+  font-weight: 600;
+}
+
+/* ⏳ LOADING */
+.loading-container {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ddd;
+  border-top-color: #0a192f;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  font-weight: 500;
+}
+
+/* ⚠️ ERROR MESSAGE */
+.error-container {
+  background: #ffecec;
+  color: #c0392b;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.error-text {
+  font-weight: 600;
+}
+
+/* 📄 PAGINATION */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.pagination-btn {
+  background: #0a192f;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: #172a46;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-page {
+  font-weight: 600;
+}
+
+/* ❌ NO RESULTS */
+.no-results {
+  text-align: center;
+  margin-top: 3rem;
+  color: #555;
+}
+
+.no-results-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* 📱 RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .carousel-image {
+    height: 250px;
+  }
+
+  .carousel-content {
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .filter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-content {
+    width: 95%;
+  }
+}
