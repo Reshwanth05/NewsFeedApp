@@ -16,7 +16,7 @@ import './searchbar.css';
 import './carousel.css';   
 import './filter.css';   
 import './pagination.css'; 
-import './footer.css';
+import './Footer.css';
 import './header.css';
 import './articlegrid.css';
 import './loading.css';
