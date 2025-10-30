@@ -19,7 +19,7 @@ const Header = () => {
 			<div className="header-content">
 				<div className="logo-container">
 					<div className="logo-icon" aria-hidden>
-						<TrendingUp className="logo-svg" size={54} />
+						<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiX0u9f7o2glECNymiWjrny6FToAZOnXXruD1FoYX7jNCgK-_O8h5uYZNk4wJNxQ7VKgMobvzc4or5QkW71kVOXG8jdrjheQHUZkG7EUvEWjUGDDHdp7HVz3NvpOVfr2AviF_Jn7wwoAnfQ/s1600/ok...png" alt="NewsHub Logo" className="logo-svg" style={{ width: '54px', height: '54px' }} />
 					</div>
 					<div style={{display: 'flex', alignItems: 'center', gap: '12px'}}>
 						<h1 className="logo-text">NewsHub</h1>

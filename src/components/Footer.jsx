@@ -1,5 +1,4 @@
 import React from 'react';
-import { TrendingUp } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,7 +10,7 @@ const Footer = () => {
           <div className="footer-logo-section">
             <div className="footer-logo">
               <div className="footer-logo-icon">
-                <TrendingUp size={20} />
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiX0u9f7o2glECNymiWjrny6FToAZOnXXruD1FoYX7jNCgK-_O8h5uYZNk4wJNxQ7VKgMobvzc4or5QkW71kVOXG8jdrjheQHUZkG7EUvEWjUGDDHdp7HVz3NvpOVfr2AviF_Jn7wwoAnfQ/s1600/ok...png" alt="NewsHub Logo" style={{ width: '20px', height: '20px' }} />
               </div>
               <h3 className="footer-logo-text">NewsHub</h3>
             </div>

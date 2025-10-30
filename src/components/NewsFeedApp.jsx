@@ -10,7 +10,7 @@ import ArticleGrid from './ArticleGrid';
 import LoadingSpinner from './LoadingSpinner';
 import ErrorMessage from './ErrorMessage';
 import Pagination from './Pagination';
-import Footer from './Footer';
+import './Footer';
 import './newsfeedapp.css'; 
 import './searchbar.css';   
 import './carousel.css';   
