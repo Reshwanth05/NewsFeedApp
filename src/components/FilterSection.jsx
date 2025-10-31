@@ -1,4 +1,5 @@
 import React from 'react';
+
 const FilterSection = ({ timeFilter, regionFilter, sortBy, onFilterChange }) => (
  <div className="filter-section">
  <h3 className="filter-title">🔍 Filter Results</h3>
@@ -43,4 +44,5 @@ const FilterSection = ({ timeFilter, regionFilter, sortBy, onFilterChange }) => 
  </div>
  </div>
 );
+
 export default FilterSection;

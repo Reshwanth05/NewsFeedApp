@@ -1,5 +1,6 @@
 import React from 'react';
 import '../components/categorytabs.css'; 
+
 const CategoryTabs = ({ activeCategory, onCategoryChange }) => {
   const categories = [
     { id: 'general', name: 'General', icon: '📰' },

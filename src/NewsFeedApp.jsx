@@ -1,31 +1,29 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, TrendingUp } from 'lucide-react';
 
-import Header from './Header';
-import SearchBar from './SearchBar';
-import CategoryTabs from './CategoryTabs';
-import NewsCarousel from './NewsCarousel';
-import FilterSection from './FilterSection';
-import ArticleGrid from './ArticleGrid';
-import LoadingSpinner from './LoadingSpinner';
-import ErrorMessage from './ErrorMessage';
-import Pagination from './Pagination';
-import Footer from './Footer';
+import Header from './components/Header';
+import SearchBar from './components/SearchBar';
+import CategoryTabs from './components/CategoryTabs';
+import NewsCarousel from './components/NewsCarousel';
+import FilterSection from './components/FilterSection';
+import ArticleGrid from './components/ArticleGrid';
+import LoadingSpinner from './components/LoadingSpinner';
+import ErrorMessage from './components/ErrorMessage';
+import Pagination from './components/Pagination';
+import Footer from './components/Footer';
 
-import './newsfeedapp.css';
-import './searchbar.css';
-import './carousel.css';
-import './filter.css';
-import './pagination.css';
-import './Footer.css';
-import './header.css';
-import './articlegrid.css';
-import './loading.css';
-import './categorytabs.css';
+import './components/newsfeedapp.css';
+import './components/searchbar.css';
+import './components/carousel.css';
+import './components/filter.css';
+import './components/pagination.css';
+import './components/Footer.css';
+import './components/header.css';
+import './components/articlegrid.css';
+import './components/loading.css';
+import './components/categorytabs.css';
 
 // Import our local proxy service
-import { fetchTopHeadlines, fetchNewsByCategory, searchNews } from "../api/service";
-
+import { fetchTopHeadlines, fetchNewsByCategory, searchNews } from "./api/service";
 
 const NewsFeedApp = () => {
   const [articles, setArticles] = useState([]);
@@ -46,6 +44,8 @@ const NewsFeedApp = () => {
   const filterRef = useRef(null);
 
   useEffect(() => {
+    // We don't have window.storage in React, assuming this was
+    // for a specific environment. Using localStorage instead.
     loadSearchHistory();
   }, []);
 
@@ -59,11 +59,11 @@ const NewsFeedApp = () => {
     }
   }, [activeCategory, currentPage]);
 
-  const loadSearchHistory = async () => {
+  const loadSearchHistory = () => {
     try {
-      const result = await window.storage.get('search-history');
-      if (result && result.value) {
-        setSearchHistory(JSON.parse(result.value));
+      const history = localStorage.getItem('search-history');
+      if (history) {
+        setSearchHistory(JSON.parse(history));
       }
     } catch {
       console.log('No search history found');
@@ -137,11 +137,12 @@ const NewsFeedApp = () => {
     });
   };
 
-  const saveSearchHistory = async (query) => {
+  const saveSearchHistory = (query) => {
     const newHistory = [query, ...searchHistory.filter((h) => h !== query)].slice(0, 5);
     setSearchHistory(newHistory);
     try {
-      await window.storage.set('search-history', JSON.stringify(newHistory));
+      // Using localStorage
+      localStorage.setItem('search-history', JSON.stringify(newHistory));
     } catch {
       console.log('Failed to save search history');
     }
@@ -239,7 +240,7 @@ const NewsFeedApp = () => {
               <Pagination
                 currentPage={currentPage}
                 onPageChange={setCurrentPage}
-                hasMore={articles.length === 12}
+                hasMore={articles.length === 12} // Assuming 12 is your page size
               />
             </>
           )}

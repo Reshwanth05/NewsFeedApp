@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { TrendingUp } from 'lucide-react';
 
 const Header = () => {
 	useEffect(() => {
